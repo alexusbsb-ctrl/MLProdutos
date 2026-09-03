@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://w7noticias.com/sitemap.xml
