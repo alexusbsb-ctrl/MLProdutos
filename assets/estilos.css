@@ -1090,6 +1090,8 @@ a {
 .article-image img {
   display: block;
 
+  cursor: zoom-in;
+
   width: 100%;
 
   height: auto;
@@ -1145,6 +1147,8 @@ a {
 
 .article-content img {
   display: block;
+
+  cursor: pointer;
 
   width: auto;
 
@@ -1958,9 +1962,21 @@ main.container,
 .produto-galeria-item {
   display: block;
   overflow: hidden;
+  padding: 0;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #ffffff;
+  cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.produto-galeria-item:hover {
+  border-color: #2563eb;
+}
+
+.produto-galeria-item.is-ativo {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, .35);
 }
 
 .produto-galeria-item img {
