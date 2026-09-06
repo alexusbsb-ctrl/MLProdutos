@@ -23,7 +23,7 @@ font:13px system-ui,sans-serif;padding:7px 13px;opacity:.85}
 @media (max-width:640px){#amkt-consent button{flex:1 1 46%;min-width:0}}
 
 /* ============================================================
-   W7NOTICIAS
+   LOJA
    STYLE.CSS
    CSS PÚBLICO
    ============================================================ */
@@ -136,8 +136,8 @@ a {
 
 .logo-mark,
 .logo img {
-  width: 84px;      /* 2× mais largo  (42 × 2) */
-  height: 63px;      /* 1,5× mais alto (42 × 1,5) */
+  width: 62px;      /* 2× mais largo  (42 × 2) */
+  height: 62px;      /* 1,5× mais alto (42 × 1,5) */
 
   display: inline-flex;
 
@@ -167,7 +167,7 @@ a {
 .logo-text {
   color: #2563eb;
 
-  font-size: 14px;   /* mesmo tamanho das letras do menu */
+  font-size: 16px;   /* mesmo tamanho das letras do menu */
   font-weight: 600;  /* mesmo peso das letras do menu */
 }
 
@@ -1090,8 +1090,6 @@ a {
 .article-image img {
   display: block;
 
-  cursor: zoom-in;
-
   width: 100%;
 
   height: auto;
@@ -1147,8 +1145,6 @@ a {
 
 .article-content img {
   display: block;
-
-  cursor: pointer;
 
   width: auto;
 
@@ -1578,8 +1574,8 @@ a {
   /* Logo reduzido proporcionalmente para caber na tela do celular */
   .logo-mark,
   .logo img {
-    width: 68px;
-    height: 51px;
+    width: 62px;
+    height: 62px;
 
     border-radius: 13px;
   }
@@ -1962,21 +1958,9 @@ main.container,
 .produto-galeria-item {
   display: block;
   overflow: hidden;
-  padding: 0;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #ffffff;
-  cursor: pointer;
-  transition: border-color .15s ease, box-shadow .15s ease;
-}
-
-.produto-galeria-item:hover {
-  border-color: #2563eb;
-}
-
-.produto-galeria-item.is-ativo {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, .35);
 }
 
 .produto-galeria-item img {
