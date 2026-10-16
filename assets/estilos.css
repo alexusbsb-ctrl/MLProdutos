@@ -2053,3 +2053,1861 @@ main.container,
   }
 
 }
+
+
+/* ============================================================
+   ROTAÇÃO DINÂMICA DE ANÚNCIOS (LOJA)
+   ============================================================ */
+
+.ad-rotator-group {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ad-rotator-group .ad-slot {
+  display: none !important;
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.ad-rotator-group .ad-slot.ad-active {
+  display: block !important;
+  opacity: 1;
+  animation: adFadeIn 0.35s ease-in-out forwards;
+}
+
+@keyframes adFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   CONTROLE DE TAMANHO DE IMAGENS - TOPO E FINAL
+   ============================================================ */
+
+.ad-top-container img,
+.ad-final-container img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BANNER RETANGULAR HORIZONTAL DO TOPO (.ad-top-banner)
+   ============================================================ */
+
+
+/* ============================================================
+   ESTRUTURA GLOBAL DO ANÚNCIO (RÓTULO EXTERNO PATROCINADO)
+   ============================================================ */
+.ad-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ad-sponsor-label {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0 0 6px 2px;
+  line-height: 1.2;
+}
+
+.ad-top-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1160px;
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px;
+  margin: 0 auto 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 5px solid #2563eb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ad-top-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  border-color: #cbd5e1;
+  border-left-color: #1d4ed8;
+}
+
+.ad-top-banner-media {
+  position: relative;
+  flex: 0 0 200px;
+  width: 200px;
+  height: 200px;
+  max-height: 200px;
+  background: #f1f5f9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.ad-top-banner-media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.ad-top-banner:hover .ad-top-banner-media img {
+  transform: scale(1.05);
+}
+
+.ad-top-banner-content {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.ad-top-banner-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  transform: none;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+.ad-top-banner-title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111827;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.ad-top-banner:hover .ad-top-banner-title {
+  color: #2563eb;
+}
+
+.ad-top-banner-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #4b5563;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-top-banner-action {
+  flex: 0 0 auto;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-left: 1px dashed #e5e7eb;
+}
+
+.ad-top-banner-price-box {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  text-align: left;
+  gap: 8px;
+}
+
+.ad-top-banner-price-tag {
+  font-size: 11px;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.ad-top-banner-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-align: right;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.ad-top-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.ad-top-banner:hover .ad-top-banner-button {
+  background: #1d4ed8;
+}
+
+/* ============================================================
+   CARD DE ANÚNCIO VERTICAL PARA AS LATERAIS (.ad-sidebar-card)
+   ============================================================ */
+
+.ad-sidebar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  min-height: 520px;
+  margin: 0 auto 25px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ad-sidebar-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.12);
+  border-color: #93c5fd;
+}
+
+.ad-sidebar-media {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  min-height: 230px;
+  background: #f8fafc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-sidebar-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.35s ease;
+}
+
+.ad-sidebar-card:hover .ad-sidebar-media img {
+  transform: scale(1.05);
+}
+
+.ad-sidebar-tag {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.ad-sidebar-body {
+  width: 100%;
+  padding: 18px 16px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.ad-sidebar-title {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111827;
+  text-align: center;
+  width: 100%;
+  transition: color 0.2s ease;
+  overflow-wrap: break-word;
+}
+
+.ad-sidebar-card:hover .ad-sidebar-title {
+  color: #2563eb;
+}
+
+.ad-sidebar-desc {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4b5563;
+  text-align: center;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-sidebar-price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 0 16px 0;
+  width: 100%;
+}
+
+.ad-sidebar-price-label {
+  font-size: 10px;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.ad-sidebar-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1.1;
+}
+
+.ad-sidebar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 180px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  margin-top: auto;
+}
+
+.ad-sidebar-card:hover .ad-sidebar-btn {
+  background: #1d4ed8;
+}
+
+/* ============================================================
+   CARD DE PRODUTO / ANÚNCIO DENTRO DO POST (100% CENTRALIZADO)
+   Imagem acima ao centro, título, descrição, valor e botão
+   em sequência, todos centralizados um abaixo do outro
+   ============================================================ */
+
+.ad-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 580px;
+  margin: 25px auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ad-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.10);
+  border-color: #93c5fd;
+}
+
+.ad-product-media {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  min-height: 200px;
+  background: #f8fafc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-product-media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.ad-product-card:hover .ad-product-media img {
+  transform: scale(1.03);
+}
+
+.ad-product-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  transform: none;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+.ad-product-body {
+  width: 100%;
+  padding: 22px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ad-product-title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111827;
+  text-align: center;
+  width: 100%;
+  transition: color 0.2s ease;
+  overflow-wrap: break-word;
+}
+
+.ad-product-card:hover .ad-product-title {
+  color: #2563eb;
+}
+
+.ad-product-desc {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4b5563;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-product-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #f3f4f6;
+  width: 100%;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.ad-product-price-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.ad-product-price-label {
+  font-size: 10px;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: left;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ad-product-price {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1.1;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.ad-product-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 220px;
+  margin-left: auto;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.ad-product-card:hover .ad-product-btn {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Regras se .ad-product-card for colocado na sidebar */
+/* Regras se .ad-product-card for colocado na sidebar */
+.article-sidebar .ad-product-card,
+.sidebar-sticky .ad-product-card {
+  position: relative;
+  max-width: 220px;
+  min-height: 520px;
+  margin: 0 auto 25px;
+}
+
+.article-sidebar .ad-product-card .ad-product-media,
+.sidebar-sticky .ad-product-card .ad-product-media {
+  height: 230px;
+}
+
+.article-sidebar .ad-product-card .ad-product-title,
+.sidebar-sticky .ad-product-card .ad-product-title {
+  font-size: 16px;
+}
+
+.article-sidebar .ad-product-card .ad-product-footer,
+.sidebar-sticky .ad-product-card .ad-product-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin-top: auto !important;
+  padding-top: 14px !important;
+  border-top: 1px solid #f3f4f6 !important;
+  box-sizing: border-box !important;
+}
+
+.article-sidebar .ad-product-card .ad-product-price-wrapper,
+.sidebar-sticky .ad-product-card .ad-product-price-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 2px !important;
+  box-sizing: border-box !important;
+}
+
+.article-sidebar .ad-product-card .ad-product-price-label,
+.sidebar-sticky .ad-product-card .ad-product-price-label {
+  font-size: 10px !important;
+  color: #6b7280 !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+.article-sidebar .ad-product-card .ad-product-price,
+.sidebar-sticky .ad-product-card .ad-product-price {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #16a34a !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  white-space: nowrap !important;
+}
+
+.article-sidebar .ad-product-card .ad-product-btn,
+.sidebar-sticky .ad-product-card .ad-product-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 180px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+/* ============================================================
+   CONTAINER INLINE DENTRO DO ARTIGO (ALTURA 200PX)
+   ============================================================ */
+
+.ad-inline-container {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 25px auto;
+  padding: 0;
+  text-align: center;
+  overflow: visible;
+  box-sizing: border-box;
+  clear: both;
+}
+
+.ad-inline-container .ad-slot {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.ad-inline-container img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.ad-inline-container iframe,
+.ad-inline-container ins {
+  display: block;
+  max-width: 100% !important;
+  height: 200px !important;
+  max-height: 200px !important;
+  margin: 0 auto;
+}
+
+.ad-inline-container .ad-product-card {
+  position: relative;
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ad-inline-container .ad-product-card .ad-product-media {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  flex: 0 0 200px;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.ad-inline-container .ad-product-card .ad-product-media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  transform: none;
+}
+
+.ad-inline-container .ad-product-card .ad-product-body {
+  padding: 12px 18px;
+  flex: 1;
+  height: 200px;
+  max-height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  overflow: hidden;
+}
+
+.ad-inline-container .ad-product-card .ad-product-title {
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 0 0 6px 0;
+  text-align: left;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-inline-container .ad-product-card .ad-product-desc {
+  text-align: left;
+  margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.ad-inline-container .ad-product-card .ad-product-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+  border-top: none;
+  width: 100%;
+  gap: 12px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.ad-inline-container .ad-product-card .ad-product-price-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  width: auto;
+  gap: 6px;
+  box-sizing: border-box;
+  flex-shrink: 1;
+}
+
+.ad-inline-container .ad-product-card .ad-product-price-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin: 0;
+  text-align: left;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ad-inline-container .ad-product-card .ad-product-price {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #16a34a;
+  text-align: left;
+  line-height: 1.2;
+  white-space: nowrap;
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+.ad-inline-container .ad-product-card .ad-product-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   OCULTAR ANÚNCIOS ENTRE POSTS NA HOME (INDEX)
+   ============================================================ */
+
+.home-layout .home-ad-between-posts {
+  display: none !important;
+}
+
+/* ============================================================
+   RESPONSIVIDADE DOS ANÚNCIOS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .ad-top-banner {
+  position: relative;
+    max-width: 100%;
+  }
+
+  .ad-top-banner-title {
+    font-size: 16px;
+  }
+
+  .ad-top-banner-action {
+    gap: 14px;
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .ad-top-banner {
+  position: relative;
+    flex-direction: row;
+    align-items: center;
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    overflow: hidden;
+  }
+
+  .ad-top-banner-media {
+  position: relative;
+    width: 45%;
+    max-width: 45%;
+    flex: 0 0 45%;
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    background: #f8fafc;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ad-top-banner-media img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    margin: auto;
+  }
+
+  .ad-top-banner-content {
+    width: 55%;
+    flex: 1 1 55%;
+    padding: 12px 14px;
+    overflow: hidden;
+  }
+
+  .ad-top-banner-title {
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ad-top-banner-desc {
+    font-size: 11px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ad-top-banner-action {
+    border-left: none;
+    border-top: none;
+    padding: 6px 0 0;
+    gap: 8px;
+  }
+
+  .ad-product-media img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: #f8fafc;
+  }
+}
+
+@media (max-width: 600px) {
+  .ad-top-container img,
+  .ad-final-container img {
+    height: 200px !important;
+    max-height: 200px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .ad-top-banner {
+  position: relative;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    min-height: 200px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-top-banner-media {
+  position: relative;
+    width: 45% !important;
+    max-width: 45% !important;
+    flex: 0 0 45% !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    min-height: 200px !important;
+    background: #f8fafc !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .ad-top-banner-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    margin: auto !important;
+    display: block !important;
+  }
+
+  .ad-top-banner-content {
+    width: 55% !important;
+    flex: 1 1 55% !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    padding: 8px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .ad-top-banner-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  transform: none;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+  .ad-top-banner-title {
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .ad-top-banner-desc {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .ad-top-banner-action {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border-top: none !important;
+  }
+
+  .ad-top-banner-price-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .ad-top-banner-price-tag {
+    font-size: 8.5px !important;
+    text-align: center !important;
+  }
+
+  .ad-top-banner-price {
+    font-size: 14.5px !important;
+    color: #16a34a !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+  }
+
+  .ad-top-banner-button {
+    width: auto !important;
+    padding: 5px 12px !important;
+    font-size: 11px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ajuste específico para garantir que o card entre parágrafos não estoure 200px no celular */
+  .ad-inline-container {
+    margin: 20px auto;
+  }
+
+  .ad-inline-container .ad-product-card {
+  position: relative;
+    height: 200px !important;
+    max-height: 200px !important;
+    min-height: 200px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Imagem reduzida para caber no espaço sem cortar nem quebrar */
+  .ad-inline-container .ad-product-card .ad-product-media {
+    width: 45% !important;
+    max-width: 45% !important;
+    flex: 0 0 45% !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    background: #f8fafc !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+    display: block !important;
+    margin: auto !important;
+  }
+
+  /* Conteúdo de texto centralizado e ajustado para caber nos 200px sem cortar o preço */
+  .ad-inline-container .ad-product-card .ad-product-body {
+    width: 55% !important;
+    max-width: 55% !important;
+    flex: 0 0 55% !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    padding: 10px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-title {
+    font-size: 12.5px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 4px 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-desc {
+    display: none !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-top: none !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-price-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+    margin: 0 0 3px 0 !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-price-label {
+    font-size: 8.5px !important;
+    text-align: left !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-price {
+    font-size: 14.5px !important;
+    font-weight: 800 !important;
+    color: #16a34a !important;
+    text-align: right !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ad-inline-container .ad-product-card .ad-product-btn {
+    width: auto !important;
+    padding: 5px 14px !important;
+    font-size: 11px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ============================================================
+   GRADE DE ANÚNCIOS NO TOPO E FINAL DA PÁGINA INDEX (6 NO DESKTOP, 4 NO CELULAR)
+   ============================================================ */
+
+.ad-grid-4-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.ad-grid-item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ad-grid-item .ad-top-banner,
+.ad-grid-item .ad-product-card {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  max-height: 215px;
+  min-height: 215px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ad-grid-item .ad-product-media,
+.ad-grid-item .ad-top-banner-media {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  min-height: 90px;
+  max-height: 90px;
+  background: #f8fafc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.ad-grid-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.ad-grid-item .ad-product-body,
+.ad-grid-item .ad-top-banner-content {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ad-grid-item .ad-product-title,
+.ad-grid-item .ad-top-banner-title {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111827;
+  margin: 0 0 4px;
+  text-align: center;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-grid-item .ad-product-desc,
+.ad-grid-item .ad-top-banner-desc {
+  display: none !important;
+}
+
+.ad-grid-item .ad-product-footer,
+.ad-grid-item .ad-top-banner-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: auto;
+  padding: 4px 6px 6px !important;
+  border-top: 1px solid #f3f4f6;
+  border-left: none !important;
+  box-sizing: border-box;
+}
+
+.ad-grid-item .ad-product-price-wrapper,
+.ad-grid-item .ad-top-banner-price-box {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  gap: 4px !important;
+}
+
+.ad-grid-item .ad-product-price-label,
+.ad-grid-item .ad-top-banner-price-tag {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #9ca3af;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.ad-grid-item .ad-product-price,
+.ad-grid-item .ad-top-banner-price {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1.1;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.ad-grid-item .ad-product-btn,
+.ad-grid-item .ad-top-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 4px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .ad-grid-4-container {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Deixa somente 4 anúncios no tablet */
+  .ad-grid-item:nth-child(n+5) {
+    display: none !important;
+  }
+
+  .ad-grid-item {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-top-banner,
+  .ad-grid-item .ad-product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 235px !important;
+    min-height: 235px !important;
+    max-height: 235px !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-media,
+  .ad-grid-item .ad-top-banner-media {
+    width: 100% !important;
+    height: 116px !important;
+    min-height: 116px !important;
+    max-height: 116px !important;
+    padding: 4px !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .ad-grid-item .ad-product-body,
+  .ad-grid-item .ad-top-banner-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 6px 4px !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-title,
+  .ad-grid-item .ad-top-banner-title {
+    font-size: 12px !important; /* Mesmo tamanho da fonte do layout PC e Mobile */
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+  }
+
+  .ad-grid-item .ad-product-footer,
+  .ad-grid-item .ad-top-banner-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 6px 8px !important;
+    border-top: 1px solid #f3f4f6 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-price,
+  .ad-grid-item .ad-top-banner-price {
+    font-size: 13.5px !important; /* Mesmo tamanho da fonte do layout PC e Mobile */
+    font-weight: 800 !important;
+    color: #16a34a !important;
+    line-height: 1.1 !important;
+  }
+
+  .ad-grid-item .ad-product-btn,
+  .ad-grid-item .ad-top-banner-button {
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 10.5px !important; /* Mesmo tamanho da fonte do layout PC e Mobile */
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVO CELULAR: 4 ANÚNCIOS EM LINHA
+   Imagem ocupando 100% da largura útil do box e altura
+   aumentada em 25% (90px), elementos empilhados e centralizados.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Aproveitamento total da largura lateral da tela no mobile */
+  .container.ad-top-container,
+  .container.ad-final-container,
+  .ad-top-container,
+  .ad-final-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-4-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Mantém apenas 4 anúncios na linha no celular */
+  .ad-grid-item:nth-child(n+5) {
+    display: none !important;
+  }
+
+  .ad-grid-item {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-unit {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .ad-grid-item .ad-sponsor-label {
+    font-size: 7px !important;
+    text-align: center !important;
+    margin: 0 0 2px !important;
+    letter-spacing: 0.2px !important;
+    line-height: 1 !important;
+  }
+
+  /* Card com altura ampliada (220px) para dar mais espaço à imagem */
+  .ad-grid-item .ad-top-banner,
+  .ad-grid-item .ad-product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 235px !important;
+    min-height: 235px !important;
+    max-height: 235px !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Área de mídia ampliada para 116px (mais espaço e sem cortes) */
+  .ad-grid-item .ad-product-media,
+  .ad-grid-item .ad-top-banner-media {
+    width: 100% !important;
+    height: 116px !important;
+    min-height: 116px !important;
+    max-height: 116px !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Imagem com visualização completa, sem corte e com proporção original */
+  .ad-grid-item img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Título empilhado abaixo da imagem */
+  .ad-grid-item .ad-product-body,
+  .ad-grid-item .ad-top-banner-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 3px 2px !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-title,
+  .ad-grid-item .ad-top-banner-title {
+    font-size: 12px !important; /* Mesmo tamanho da fonte do layout PC */
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: #111827 !important;
+    margin: 0 0 2px !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+  }
+
+  .ad-grid-item .ad-product-desc,
+  .ad-grid-item .ad-top-banner-desc {
+    display: none !important;
+  }
+
+  /* Rodapé: preço e botão empilhados e centralizados */
+  .ad-grid-item .ad-product-footer,
+  .ad-grid-item .ad-top-banner-action {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 2px !important;
+    padding: 2px 2px 4px !important;
+    margin-top: auto !important;
+    border-top: 1px solid #f3f4f6 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-price-wrapper,
+  .ad-grid-item .ad-top-banner-price-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-product-price-label,
+  .ad-grid-item .ad-top-banner-price-tag {
+    display: none !important;
+  }
+
+  .ad-grid-item .ad-product-price,
+  .ad-grid-item .ad-top-banner-price {
+    font-size: 13.5px !important; /* Mesmo tamanho da fonte do layout PC */
+    font-weight: 800 !important;
+    color: #16a34a !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .ad-grid-item .ad-product-btn,
+  .ad-grid-item .ad-top-banner-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 4px 4px !important;
+    border-radius: 4px !important;
+    font-size: 10.5px !important; /* Mesmo tamanho da fonte do layout PC */
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Correção de largura e proporção para imagens de anúncio no TOPO no celular */
+  .ad-grid-item .ad-top-banner,
+  .ad-top-container .ad-grid-item .ad-top-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 235px !important;
+    min-height: 235px !important;
+    max-height: 235px !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-top-banner-media,
+  .ad-top-container .ad-grid-item .ad-top-banner-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    height: 116px !important;
+    min-height: 116px !important;
+    max-height: 116px !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ad-grid-item .ad-top-banner-media img,
+  .ad-top-container .ad-grid-item .ad-top-banner-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .ad-grid-item .ad-top-banner-content,
+  .ad-top-container .ad-grid-item .ad-top-banner-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    padding: 3px 2px !important;
+    box-sizing: border-box !important;
+  }
+}
